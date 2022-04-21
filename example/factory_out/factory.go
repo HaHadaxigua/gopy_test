@@ -1149,6 +1149,15 @@ func handleFromPtr_factory_XInterfaceCreator(p interface{}) CGoHandle {
 }
 
 // ---- Global Variables: can only use functions to access ---
+//export factory_XInterfaceList
+func factory_XInterfaceList() CGoHandle {
+	return handleFromPtr_Slice_factory_XInterface(&factory.XInterfaceList)
+}
+
+//export factory_Set_XInterfaceList
+func factory_Set_XInterfaceList(val CGoHandle) {
+	factory.XInterfaceList = deptrFromHandle_Slice_factory_XInterface(val)
+}
 
 // ---- Interfaces ---
 
@@ -1285,6 +1294,19 @@ func factory_B_DoB(_handle CGoHandle) *C.char {
 
 // ---- Functions ---
 
+//export factory_IteratorAndDo
+func factory_IteratorAndDo(list CGoHandle) *C.char {
+	var __err error
+	__err = factory.IteratorAndDo(deptrFromHandle_Slice_factory_XInterface(list))
+
+	if __err != nil {
+		estr := C.CString(__err.Error())
+		C.PyErr_SetString(C.PyExc_RuntimeError, estr)
+		return estr
+	}
+	return C.CString("")
+}
+
 //export factory_AddFuncToFactory
 func factory_AddFuncToFactory(typeName *C.char, pc CGoHandle, goRun C.char) {
 	if boolPyToGo(goRun) {
@@ -1305,17 +1327,4 @@ func factory_BuildXInterface(typeName *C.char) CGoHandle {
 		return handleFromPtr_factory_XInterface(nil)
 	}
 	return handleFromPtr_factory_XInterface(cret)
-}
-
-//export factory_BuildXInterfaces
-func factory_BuildXInterfaces(typeNames CGoHandle) CGoHandle {
-	cret, __err := factory.BuildXInterfaces(deptrFromHandle_Slice_string(typeNames))
-
-	if __err != nil {
-		estr := C.CString(__err.Error())
-		C.PyErr_SetString(C.PyExc_RuntimeError, estr)
-		C.free(unsafe.Pointer(estr))
-		return handleFromPtr_Slice_factory_XInterface(nil)
-	}
-	return handleFromPtr_Slice_factory_XInterface(&cret)
 }

@@ -120,6 +120,23 @@ class Slice_factory_XInterface(go.GoClass):
 
 
 # ---- Global Variables: can only use functions to access ---
+def XInterfaceList():
+	"""
+	XInterfaceList Gets Go Variable: factory.XInterfaceList
+	
+	"""
+	return Slice_factory_XInterface(handle=_factory.factory_XInterfaceList())
+
+def Set_XInterfaceList(value):
+	"""
+	Set_XInterfaceList Sets Go Variable: factory.XInterfaceList
+	
+	"""
+	if isinstance(value, go.GoClass):
+		_factory.factory_Set_XInterfaceList(value.handle)
+	else:
+		_factory.factory_Set_XInterfaceList(value)
+
 
 
 # ---- Interfaces ---
@@ -296,14 +313,14 @@ class B(go.GoClass):
 
 
 # ---- Functions ---
+def IteratorAndDo(list):
+	"""IteratorAndDo([]object list) str"""
+	return _factory.factory_IteratorAndDo(list.handle)
 def AddFuncToFactory(typeName, pc, goRun=False):
 	"""AddFuncToFactory(str typeName, object pc) """
 	_factory.factory_AddFuncToFactory(typeName, pc.handle, goRun)
 def BuildXInterface(typeName):
 	"""BuildXInterface(str typeName) object, str"""
 	return XInterface(handle=_factory.factory_BuildXInterface(typeName))
-def BuildXInterfaces(typeNames):
-	"""BuildXInterfaces([]str typeNames) []object, str"""
-	return Slice_factory_XInterface(handle=_factory.factory_BuildXInterfaces(typeNames.handle))
 
 

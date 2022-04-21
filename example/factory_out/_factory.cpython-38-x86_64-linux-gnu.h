@@ -259,6 +259,10 @@ extern long long int Slice_factory_XInterface_elem(long long int handle, GoInt _
 extern long long int Slice_factory_XInterface_subslice(long long int handle, GoInt _st, GoInt _ed);
 extern void Slice_factory_XInterface_set(long long int handle, GoInt _idx, long long int _vl);
 extern void Slice_factory_XInterface_append(long long int handle, long long int _vl);
+
+// ---- Global Variables: can only use functions to access ---
+extern long long int factory_XInterfaceList();
+extern void factory_Set_XInterfaceList(long long int val);
 extern void factory_XInterface_DoA(long long int _handle, char goRun);
 extern char* factory_XInterface_DoB(long long int _handle);
 
@@ -275,9 +279,9 @@ extern char* factory_B_NameB_Get(long long int handle);
 extern void factory_B_NameB_Set(long long int handle, char* val);
 extern void factory_B_DoA(long long int _handle, char goRun);
 extern char* factory_B_DoB(long long int _handle);
+extern char* factory_IteratorAndDo(long long int list);
 extern void factory_AddFuncToFactory(char* typeName, long long int pc, char goRun);
 extern long long int factory_BuildXInterface(char* typeName);
-extern long long int factory_BuildXInterfaces(long long int typeNames);
 
 #ifdef __cplusplus
 }

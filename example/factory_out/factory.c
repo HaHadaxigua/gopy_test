@@ -2002,6 +2002,37 @@ PyObject * _wrap__factory_Slice_factory_XInterface_append(PyObject * PYBINDGEN_U
 
 
 PyObject *
+_wrap__factory_factory_XInterfaceList(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs))
+{
+    PyObject *py_retval;
+    int64_t retval;
+
+    retval = factory_XInterfaceList();
+    py_retval = Py_BuildValue((char *) "L", retval);
+    return py_retval;
+}
+PyObject * _wrap__factory_factory_XInterfaceList(PyObject *PYBINDGEN_UNUSED(_args), PyObject *PYBINDGEN_UNUSED(_kwargs));
+
+
+PyObject *
+_wrap__factory_factory_Set_XInterfaceList(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    int64_t val;
+    const char *keywords[] = {"val", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &val)) {
+        return NULL;
+    }
+    factory_Set_XInterfaceList(val);
+    Py_INCREF(Py_None);
+    py_retval = Py_None;
+    return py_retval;
+}
+PyObject * _wrap__factory_factory_Set_XInterfaceList(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
 _wrap__factory_factory_XInterface_DoA(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
@@ -2237,6 +2268,27 @@ PyObject * _wrap__factory_factory_B_DoB(PyObject * PYBINDGEN_UNUSED(dummy), PyOb
 
 
 PyObject *
+_wrap__factory_factory_IteratorAndDo(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    char *retval;
+    int64_t list;
+    const char *keywords[] = {"list", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &list)) {
+        return NULL;
+    }
+    retval = factory_IteratorAndDo(list);
+    if (PyErr_Occurred()) {
+        return NULL;
+    }
+    py_retval = Py_BuildValue((char *) "s", retval);
+    return py_retval;
+}
+PyObject * _wrap__factory_factory_IteratorAndDo(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
 _wrap__factory_factory_AddFuncToFactory(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
@@ -2280,27 +2332,6 @@ _wrap__factory_factory_BuildXInterface(PyObject * PYBINDGEN_UNUSED(dummy), PyObj
     return py_retval;
 }
 PyObject * _wrap__factory_factory_BuildXInterface(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
-
-
-PyObject *
-_wrap__factory_factory_BuildXInterfaces(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
-{
-    PyObject *py_retval;
-    int64_t retval;
-    int64_t typeNames;
-    const char *keywords[] = {"typeNames", NULL};
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &typeNames)) {
-        return NULL;
-    }
-    retval = factory_BuildXInterfaces(typeNames);
-    if (PyErr_Occurred()) {
-        return NULL;
-    }
-    py_retval = Py_BuildValue((char *) "L", retval);
-    return py_retval;
-}
-PyObject * _wrap__factory_factory_BuildXInterfaces(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 static PyMethodDef _factory_functions[] = {
     {(char *) "GoPyInit", (PyCFunction) _wrap__factory_GoPyInit, METH_NOARGS, "GoPyInit()\n\n" },
@@ -2409,6 +2440,8 @@ static PyMethodDef _factory_functions[] = {
     {(char *) "Slice_factory_XInterface_subslice", (PyCFunction) _wrap__factory_Slice_factory_XInterface_subslice, METH_KEYWORDS|METH_VARARGS, "Slice_factory_XInterface_subslice(handle, st, ed)\n\ntype: handle: int64_t\ntype: st: int\ntype: ed: int" },
     {(char *) "Slice_factory_XInterface_set", (PyCFunction) _wrap__factory_Slice_factory_XInterface_set, METH_KEYWORDS|METH_VARARGS, "Slice_factory_XInterface_set(handle, idx, value)\n\ntype: handle: int64_t\ntype: idx: int\ntype: value: int64_t" },
     {(char *) "Slice_factory_XInterface_append", (PyCFunction) _wrap__factory_Slice_factory_XInterface_append, METH_KEYWORDS|METH_VARARGS, "Slice_factory_XInterface_append(handle, value)\n\ntype: handle: int64_t\ntype: value: int64_t" },
+    {(char *) "factory_XInterfaceList", (PyCFunction) _wrap__factory_factory_XInterfaceList, METH_NOARGS, "factory_XInterfaceList()\n\n" },
+    {(char *) "factory_Set_XInterfaceList", (PyCFunction) _wrap__factory_factory_Set_XInterfaceList, METH_KEYWORDS|METH_VARARGS, "factory_Set_XInterfaceList(val)\n\ntype: val: int64_t" },
     {(char *) "factory_XInterface_DoA", (PyCFunction) _wrap__factory_factory_XInterface_DoA, METH_KEYWORDS|METH_VARARGS, "factory_XInterface_DoA(_handle, goRun)\n\ntype: _handle: int64_t\ntype: goRun: bool" },
     {(char *) "factory_XInterface_DoB", (PyCFunction) _wrap__factory_factory_XInterface_DoB, METH_KEYWORDS|METH_VARARGS, "factory_XInterface_DoB(_handle)\n\ntype: _handle: int64_t" },
     {(char *) "factory_A_CTor", (PyCFunction) _wrap__factory_factory_A_CTor, METH_NOARGS, "factory_A_CTor()\n\n" },
@@ -2421,9 +2454,9 @@ static PyMethodDef _factory_functions[] = {
     {(char *) "factory_B_NameB_Set", (PyCFunction) _wrap__factory_factory_B_NameB_Set, METH_KEYWORDS|METH_VARARGS, "factory_B_NameB_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: char *" },
     {(char *) "factory_B_DoA", (PyCFunction) _wrap__factory_factory_B_DoA, METH_KEYWORDS|METH_VARARGS, "factory_B_DoA(_handle, goRun)\n\ntype: _handle: int64_t\ntype: goRun: bool" },
     {(char *) "factory_B_DoB", (PyCFunction) _wrap__factory_factory_B_DoB, METH_KEYWORDS|METH_VARARGS, "factory_B_DoB(_handle)\n\ntype: _handle: int64_t" },
+    {(char *) "factory_IteratorAndDo", (PyCFunction) _wrap__factory_factory_IteratorAndDo, METH_KEYWORDS|METH_VARARGS, "factory_IteratorAndDo(list)\n\ntype: list: int64_t" },
     {(char *) "factory_AddFuncToFactory", (PyCFunction) _wrap__factory_factory_AddFuncToFactory, METH_KEYWORDS|METH_VARARGS, "factory_AddFuncToFactory(typeName, pc, goRun)\n\ntype: typeName: char *\ntype: pc: int64_t\ntype: goRun: bool" },
     {(char *) "factory_BuildXInterface", (PyCFunction) _wrap__factory_factory_BuildXInterface, METH_KEYWORDS|METH_VARARGS, "factory_BuildXInterface(typeName)\n\ntype: typeName: char *" },
-    {(char *) "factory_BuildXInterfaces", (PyCFunction) _wrap__factory_factory_BuildXInterfaces, METH_KEYWORDS|METH_VARARGS, "factory_BuildXInterfaces(typeNames)\n\ntype: typeNames: int64_t" },
     {NULL, NULL, 0, NULL}
 };
 #if PY_VERSION_HEX >= 0x03000000

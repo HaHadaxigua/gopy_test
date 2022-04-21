@@ -147,6 +147,8 @@ mod.add_function('Slice_factory_XInterface_elem', retval('int64_t'), [param('int
 mod.add_function('Slice_factory_XInterface_subslice', retval('int64_t'), [param('int64_t', 'handle'), param('int', 'st'), param('int', 'ed')])
 mod.add_function('Slice_factory_XInterface_set', None, [param('int64_t', 'handle'), param('int', 'idx'), param('int64_t', 'value')])
 mod.add_function('Slice_factory_XInterface_append', None, [param('int64_t', 'handle'), param('int64_t', 'value')])
+mod.add_function('factory_XInterfaceList', retval('int64_t'), [])
+mod.add_function('factory_Set_XInterfaceList', None, [param('int64_t', 'val')])
 add_checked_function(mod, 'factory_XInterface_DoA', None, [param('int64_t', '_handle'), param('bool', 'goRun')])
 add_checked_function(mod, 'factory_XInterface_DoB', retval('char*'), [param('int64_t', '_handle')])
 mod.add_function('factory_A_CTor', retval('int64_t'), [])
@@ -159,9 +161,9 @@ mod.add_function('factory_B_NameB_Get', retval('char*'), [param('int64_t', 'hand
 mod.add_function('factory_B_NameB_Set', None, [param('int64_t', 'handle'), param('char*', 'val')])
 add_checked_function(mod, 'factory_B_DoA', None, [param('int64_t', '_handle'), param('bool', 'goRun')])
 add_checked_function(mod, 'factory_B_DoB', retval('char*'), [param('int64_t', '_handle')])
+add_checked_function(mod, 'factory_IteratorAndDo', retval('char*'), [param('int64_t', 'list')])
 add_checked_function(mod, 'factory_AddFuncToFactory', None, [param('char*', 'typeName'), param('int64_t', 'pc'), param('bool', 'goRun')])
 add_checked_function(mod, 'factory_BuildXInterface', retval('int64_t'), [param('char*', 'typeName')])
-add_checked_function(mod, 'factory_BuildXInterfaces', retval('int64_t'), [param('int64_t', 'typeNames')])
 
 mod.generate(open('factory.c', 'w'))
 
