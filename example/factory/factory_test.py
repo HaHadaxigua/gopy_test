@@ -14,5 +14,7 @@ if __name__ == '__main__':
     objB = factory.BuildXInterface("B")
     objB.DoB()
 
+    objs = factory.BuildXInterfaces(["A", "B"]) # not work
+
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
