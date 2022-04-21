@@ -161,9 +161,11 @@ mod.add_function('factory_B_NameB_Get', retval('char*'), [param('int64_t', 'hand
 mod.add_function('factory_B_NameB_Set', None, [param('int64_t', 'handle'), param('char*', 'val')])
 add_checked_function(mod, 'factory_B_DoA', None, [param('int64_t', '_handle'), param('bool', 'goRun')])
 add_checked_function(mod, 'factory_B_DoB', retval('char*'), [param('int64_t', '_handle')])
-add_checked_function(mod, 'factory_IteratorAndDo', retval('char*'), [param('int64_t', 'list')])
 add_checked_function(mod, 'factory_AddFuncToFactory', None, [param('char*', 'typeName'), param('int64_t', 'pc'), param('bool', 'goRun')])
 add_checked_function(mod, 'factory_BuildXInterface', retval('int64_t'), [param('char*', 'typeName')])
+add_checked_function(mod, 'factory_IsA', retval('bool'), [param('int64_t', 'x')])
+add_checked_function(mod, 'factory_IsB', retval('bool'), [param('int64_t', 'x')])
+add_checked_function(mod, 'factory_IteratorAndDo', retval('char*'), [param('int64_t', 'list')])
 
 mod.generate(open('factory.c', 'w'))
 

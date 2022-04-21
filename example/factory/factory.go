@@ -40,3 +40,15 @@ func GetFuncFromFactory(typeName string) (CreateFunction, bool) {
 	fn, ok := factory[typeName]
 	return fn, ok
 }
+
+// -----------------------------------------------------------------------------
+
+func IsA(x XInterface) bool {
+	_, ok := x.(A)
+	return ok
+}
+
+func IsB(x XInterface) bool {
+	_, ok := x.(B)
+	return ok
+}

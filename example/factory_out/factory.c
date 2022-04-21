@@ -2268,27 +2268,6 @@ PyObject * _wrap__factory_factory_B_DoB(PyObject * PYBINDGEN_UNUSED(dummy), PyOb
 
 
 PyObject *
-_wrap__factory_factory_IteratorAndDo(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
-{
-    PyObject *py_retval;
-    char *retval;
-    int64_t list;
-    const char *keywords[] = {"list", NULL};
-
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &list)) {
-        return NULL;
-    }
-    retval = factory_IteratorAndDo(list);
-    if (PyErr_Occurred()) {
-        return NULL;
-    }
-    py_retval = Py_BuildValue((char *) "s", retval);
-    return py_retval;
-}
-PyObject * _wrap__factory_factory_IteratorAndDo(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
-
-
-PyObject *
 _wrap__factory_factory_AddFuncToFactory(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
 {
     PyObject *py_retval;
@@ -2332,6 +2311,69 @@ _wrap__factory_factory_BuildXInterface(PyObject * PYBINDGEN_UNUSED(dummy), PyObj
     return py_retval;
 }
 PyObject * _wrap__factory_factory_BuildXInterface(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__factory_factory_IsA(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    bool retval;
+    int64_t x;
+    const char *keywords[] = {"x", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &x)) {
+        return NULL;
+    }
+    retval = factory_IsA(x);
+    if (PyErr_Occurred()) {
+        return NULL;
+    }
+    py_retval = Py_BuildValue((char *) "N", PyBool_FromLong(retval));
+    return py_retval;
+}
+PyObject * _wrap__factory_factory_IsA(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__factory_factory_IsB(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    bool retval;
+    int64_t x;
+    const char *keywords[] = {"x", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &x)) {
+        return NULL;
+    }
+    retval = factory_IsB(x);
+    if (PyErr_Occurred()) {
+        return NULL;
+    }
+    py_retval = Py_BuildValue((char *) "N", PyBool_FromLong(retval));
+    return py_retval;
+}
+PyObject * _wrap__factory_factory_IsB(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
+
+
+PyObject *
+_wrap__factory_factory_IteratorAndDo(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs)
+{
+    PyObject *py_retval;
+    char *retval;
+    int64_t list;
+    const char *keywords[] = {"list", NULL};
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, (char *) "L", (char **) keywords, &list)) {
+        return NULL;
+    }
+    retval = factory_IteratorAndDo(list);
+    if (PyErr_Occurred()) {
+        return NULL;
+    }
+    py_retval = Py_BuildValue((char *) "s", retval);
+    return py_retval;
+}
+PyObject * _wrap__factory_factory_IteratorAndDo(PyObject * PYBINDGEN_UNUSED(dummy), PyObject *args, PyObject *kwargs);
 
 static PyMethodDef _factory_functions[] = {
     {(char *) "GoPyInit", (PyCFunction) _wrap__factory_GoPyInit, METH_NOARGS, "GoPyInit()\n\n" },
@@ -2454,9 +2496,11 @@ static PyMethodDef _factory_functions[] = {
     {(char *) "factory_B_NameB_Set", (PyCFunction) _wrap__factory_factory_B_NameB_Set, METH_KEYWORDS|METH_VARARGS, "factory_B_NameB_Set(handle, val)\n\ntype: handle: int64_t\ntype: val: char *" },
     {(char *) "factory_B_DoA", (PyCFunction) _wrap__factory_factory_B_DoA, METH_KEYWORDS|METH_VARARGS, "factory_B_DoA(_handle, goRun)\n\ntype: _handle: int64_t\ntype: goRun: bool" },
     {(char *) "factory_B_DoB", (PyCFunction) _wrap__factory_factory_B_DoB, METH_KEYWORDS|METH_VARARGS, "factory_B_DoB(_handle)\n\ntype: _handle: int64_t" },
-    {(char *) "factory_IteratorAndDo", (PyCFunction) _wrap__factory_factory_IteratorAndDo, METH_KEYWORDS|METH_VARARGS, "factory_IteratorAndDo(list)\n\ntype: list: int64_t" },
     {(char *) "factory_AddFuncToFactory", (PyCFunction) _wrap__factory_factory_AddFuncToFactory, METH_KEYWORDS|METH_VARARGS, "factory_AddFuncToFactory(typeName, pc, goRun)\n\ntype: typeName: char *\ntype: pc: int64_t\ntype: goRun: bool" },
     {(char *) "factory_BuildXInterface", (PyCFunction) _wrap__factory_factory_BuildXInterface, METH_KEYWORDS|METH_VARARGS, "factory_BuildXInterface(typeName)\n\ntype: typeName: char *" },
+    {(char *) "factory_IsA", (PyCFunction) _wrap__factory_factory_IsA, METH_KEYWORDS|METH_VARARGS, "factory_IsA(x)\n\ntype: x: int64_t" },
+    {(char *) "factory_IsB", (PyCFunction) _wrap__factory_factory_IsB, METH_KEYWORDS|METH_VARARGS, "factory_IsB(x)\n\ntype: x: int64_t" },
+    {(char *) "factory_IteratorAndDo", (PyCFunction) _wrap__factory_factory_IteratorAndDo, METH_KEYWORDS|METH_VARARGS, "factory_IteratorAndDo(list)\n\ntype: list: int64_t" },
     {NULL, NULL, 0, NULL}
 };
 #if PY_VERSION_HEX >= 0x03000000

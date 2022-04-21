@@ -1294,19 +1294,6 @@ func factory_B_DoB(_handle CGoHandle) *C.char {
 
 // ---- Functions ---
 
-//export factory_IteratorAndDo
-func factory_IteratorAndDo(list CGoHandle) *C.char {
-	var __err error
-	__err = factory.IteratorAndDo(deptrFromHandle_Slice_factory_XInterface(list))
-
-	if __err != nil {
-		estr := C.CString(__err.Error())
-		C.PyErr_SetString(C.PyExc_RuntimeError, estr)
-		return estr
-	}
-	return C.CString("")
-}
-
 //export factory_AddFuncToFactory
 func factory_AddFuncToFactory(typeName *C.char, pc CGoHandle, goRun C.char) {
 	if boolPyToGo(goRun) {
@@ -1327,4 +1314,29 @@ func factory_BuildXInterface(typeName *C.char) CGoHandle {
 		return handleFromPtr_factory_XInterface(nil)
 	}
 	return handleFromPtr_factory_XInterface(cret)
+}
+
+//export factory_IsA
+func factory_IsA(x CGoHandle) C.char {
+	return boolGoToPy(factory.IsA(ptrFromHandle_factory_XInterface(x)))
+
+}
+
+//export factory_IsB
+func factory_IsB(x CGoHandle) C.char {
+	return boolGoToPy(factory.IsB(ptrFromHandle_factory_XInterface(x)))
+
+}
+
+//export factory_IteratorAndDo
+func factory_IteratorAndDo(list CGoHandle) *C.char {
+	var __err error
+	__err = factory.IteratorAndDo(deptrFromHandle_Slice_factory_XInterface(list))
+
+	if __err != nil {
+		estr := C.CString(__err.Error())
+		C.PyErr_SetString(C.PyExc_RuntimeError, estr)
+		return estr
+	}
+	return C.CString("")
 }

@@ -279,9 +279,11 @@ extern char* factory_B_NameB_Get(long long int handle);
 extern void factory_B_NameB_Set(long long int handle, char* val);
 extern void factory_B_DoA(long long int _handle, char goRun);
 extern char* factory_B_DoB(long long int _handle);
-extern char* factory_IteratorAndDo(long long int list);
 extern void factory_AddFuncToFactory(char* typeName, long long int pc, char goRun);
 extern long long int factory_BuildXInterface(char* typeName);
+extern char factory_IsA(long long int x);
+extern char factory_IsB(long long int x);
+extern char* factory_IteratorAndDo(long long int list);
 
 #ifdef __cplusplus
 }

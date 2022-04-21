@@ -313,14 +313,20 @@ class B(go.GoClass):
 
 
 # ---- Functions ---
-def IteratorAndDo(list):
-	"""IteratorAndDo([]object list) str"""
-	return _factory.factory_IteratorAndDo(list.handle)
 def AddFuncToFactory(typeName, pc, goRun=False):
 	"""AddFuncToFactory(str typeName, object pc) """
 	_factory.factory_AddFuncToFactory(typeName, pc.handle, goRun)
 def BuildXInterface(typeName):
 	"""BuildXInterface(str typeName) object, str"""
 	return XInterface(handle=_factory.factory_BuildXInterface(typeName))
+def IsA(x):
+	"""IsA(object x) bool"""
+	return _factory.factory_IsA(x.handle)
+def IsB(x):
+	"""IsB(object x) bool"""
+	return _factory.factory_IsB(x.handle)
+def IteratorAndDo(list):
+	"""IteratorAndDo([]object list) str"""
+	return _factory.factory_IteratorAndDo(list.handle)
 
 
